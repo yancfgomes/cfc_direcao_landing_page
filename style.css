@@ -7,29 +7,41 @@ body {
   background-color: rgb(234, 220, 15);
   font-family: 'Poppins', sans-serif;
 }
+/* Empurrando os elementos para baixo do navbar */
+body{
+  padding-top: 120px; /* Ajuste esse valor conforme a altura do seu navbar */
+}
+/* ---- Estilo do Navbar ---- */
 header nav {
   position: fixed;
   top: 0;
   right: 0;
   z-index: 1000;
+  height: 120px;
   width: 100%;
+  background-color: rgb(245, 225, 5); 
+  padding: 20px 9%;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 20px 9%;
-  background-color: rgb(245, 225, 5); 
 }
+
+/* Logo da Autoescola */
 header nav .logo img {
   width: 120px;
   height: 120px;
 }
+/* Remoção do estilo de lista */
 header nav ul li {
   list-style: none;
 }
+/* Links de Navegação na horizontal */
 .nav-links{
   display: flex;
   gap: 2rem;
 }
+/* Links de Navegação */
 .nav-links a{
   text-decoration: none;
   font-size: 20px;
@@ -40,39 +52,51 @@ header nav ul li {
 .nav-links a:hover{
   border-bottom: rgb(24, 24, 24) solid 2px;
 }
+/* Menu Hamburguer */
 #menu-icon{
   color: black;
   font-size: 30px;
   cursor: pointer;
-  z-index: 10001;
   display: none;
 }
-.hero{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+
+/* ---- Estilo da seção hero ---- */
+.hero {
+  /* Propriedades de layout e posicionamento */
   width: 100%;
   min-height: 95vh;
-  position: relative;
   padding: 0 40px;
-  align-items: center;
-  margin-top: 80px; 
-  background-color: rgb(24, 24, 24);
-}
-.hero-content{
-  flex: 1;
+  position: relative; /* Essencial para o ::before funcionar */
+  
+  /* Propriedades de Flexbox para centralizar o conteúdo */
   display: flex;
+  flex: 1;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
-  color: white;
+  align-items: center;
+  
+  /* Ordem de empilhamento para ficar acima do pseudo-elemento */
+  z-index: 0;
 }
+.hero::before {
+  content: ""; /* É obrigatório para que o pseudo-elemento seja renderizado.  */
+  position: absolute; 
+  inset: 0; /* top: 0; right: 0; bottom: 0; left: 0; isso serve para cobrir toda a área do elemento pai */
+  background-image: url(images/CNH_editada-810x567.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6; 
+  pointer-events: none; /* deixa o ::before sem interações */
+  z-index: -1;
+}
+
 .hero-headline {
   font-size: 4rem;
   font-weight: 700;
-  color: white;
+  color: black;
   line-height: 1.2;
-  margin-top: 0;
+  /* margin-top: 0; */
   margin-bottom: 20px;
 }
 .hero-text {
@@ -92,21 +116,19 @@ header nav ul li {
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.3s ease;
-  align-self: flex-start;
+  margin-bottom: 1rem;
+
 }
 
 .hero-button:hover {
-  background-color: #555;
+  background-color: #f27a02;
 }
 
-.hero-img {
-  flex: 1;
-  border-radius: 8px;
-  min-height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
+/* ---- Estilo da seção serviços ---- */
+.service-section{
+  border: orangered solid 2px;
+  width: 100%;
+  min-height: 95vh;
 }
 .card-img{
     width: auto;
