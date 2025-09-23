@@ -4,33 +4,54 @@
   box-sizing: border-box;
 }
 body {
-  background-color: rgb(234, 220, 15);
+  background-color: rgb(0, 0, 0);
   font-family: 'Poppins', sans-serif;
+}
+.container-geral{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
 /* Empurrando os elementos para baixo do navbar */
 body{
-  padding-top: 120px; /* Ajuste esse valor conforme a altura do seu navbar */
+  padding-top: 80px; /* Ajuste esse valor conforme a altura do seu navbar */
 }
+
+/* ---------------------------------------------------------------------------------- */
+
+
 /* ---- Estilo do Navbar ---- */
 header nav {
+  /* Posicionamento */
   position: fixed;
   top: 0;
+  left: 0;
   right: 0;
   z-index: 1000;
-  height: 120px;
   width: 100%;
-  background-color: rgb(245, 225, 5); 
-  padding: 20px 9%;
+  height: 80px;
 
+  /* Modelo de caixa e espaçamento */
+  padding: 0 20px;
+
+  /* Layout (Flex) */
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  /* Aparência */
+  background-color: rgb(245, 225, 5);
+  border-bottom: 1px solid white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+
+  /* garante que o conteúdo abaixo não "vaze" visualmente sob o navbar */
+  backdrop-filter: none;
 }
 
 /* Logo da Autoescola */
 header nav .logo img {
-  width: 120px;
-  height: 120px;
+  width: 90px;
+  height: 90px;
 }
 /* Remoção do estilo de lista */
 header nav ul li {
@@ -60,12 +81,15 @@ header nav ul li {
   display: none;
 }
 
+/* ---------------------------------------------------------------------------------- */
+
+
 /* ---- Estilo da seção hero ---- */
 .hero {
   /* Propriedades de layout e posicionamento */
   width: 100%;
-  min-height: 95vh;
-  padding: 0 40px;
+  height: 60rem;
+  padding: 40px 20px;
   position: relative; /* Essencial para o ::before funcionar */
   
   /* Propriedades de Flexbox para centralizar o conteúdo */
@@ -74,6 +98,7 @@ header nav ul li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   
   /* Ordem de empilhamento para ficar acima do pseudo-elemento */
   z-index: 0;
@@ -94,41 +119,59 @@ header nav ul li {
 .hero-headline {
   font-size: 4rem;
   font-weight: 700;
-  color: black;
+  color: white;
   line-height: 1.2;
   /* margin-top: 0; */
   margin-bottom: 20px;
+
 }
 .hero-text {
-  font-size: 1.2rem;
+  font-size: 1.5rem;
+  font-weight: 700;
   color: white;
   line-height: 1.6;
   margin-bottom: 30px;
+
+}
+.destaque {
+  color: rgb(245, 225, 5);
+  font-weight: bold;
 }
 
-.hero-button {
-  padding: 12px 24px;
-  font-size: 1rem;
-  font-weight: 600;
-  color: #1e1f1f;
-  background-color: #18d434;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-bottom: 1rem;
+/* Botão principal do hero — estilo base */
 
+/* Centraliza o botão dentro da seção .hero (quando .hero é um flex container) */
+.hero .hero-button {
+  display: block;
+  margin: 0 auto;
+  align-self: center;
+}
+.hero .hero-button {
+  width: 150px;
+  height: 60px;
+  border: 3px solid #315cfd;
+  border-radius: 45px;
+  transition: all 0.3s;
+  cursor: pointer;
+  background: white;
+  font-size: 1.2em;
+  font-weight: 550;
+  margin-top: 2rem;
 }
 
 .hero-button:hover {
-  background-color: #f27a02;
+  background: #315cfd;
+  color: white;
+  font-size: 1.5em;
 }
 
+/* ---------------------------------------------------------------------------------- */
+
+
 /* ---- Estilo da seção serviços ---- */
-.service-section{
-  border: orangered solid 2px;
+.services-section{
   width: 100%;
-  min-height: 95vh;
+  background-color: rgb(245, 225, 5);
 }
 .card-img{
     width: auto;
@@ -138,7 +181,7 @@ header nav ul li {
 }
 .card{
     /* border: 1px solid black; */
-    width: 400px;
+    width: 300px;
     height: 500px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
@@ -146,6 +189,7 @@ header nav ul li {
     border-radius: 5px;
     text-align: center;
     background-color: white;
+    overflow: hidden;
 }
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
@@ -161,6 +205,8 @@ header nav ul li {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    gap: 2rem;
+    
 }
 .card-btn{
   border: none;
@@ -178,8 +224,8 @@ header nav ul li {
   color: white;
 }
 .section-title{
-  margin-top: 2rem;
-  font-size: 4rem;
+  padding: 40px 0 20px 0;
+  font-size: 2.5em;
   font-weight: 700;
   color: black;
   line-height: 1.2;
@@ -192,3 +238,5 @@ header nav ul li {
   text-align: center;
   margin-bottom: 2rem;
 }
+
+
